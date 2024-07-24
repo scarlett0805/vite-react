@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { RouteObject, useRoutes, createBrowserRouter } from 'react-router-dom';
 import LazyLoad from './lazyLoad';
 import { lazy } from 'react';
