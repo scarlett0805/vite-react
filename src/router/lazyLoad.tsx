@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Suspense } from "react";
+import { Suspense } from 'react';
 
 function LazyLoad(Element: any) {
   return (

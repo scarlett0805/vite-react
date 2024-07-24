@@ -1,6 +1,6 @@
-import { useState, FC } from "react";
-import "./App.css";
-import ILayout from "./components/Layout";
+import { useState, FC } from 'react';
+import './App.css';
+import ILayout from './components/Layout';
 
 interface IProps {}
 const App: FC<IProps> = () => {

@@ -1,6 +1,6 @@
-import { RouteObject, useRoutes, createBrowserRouter } from "react-router-dom";
-import LazyLoad from "./lazyLoad";
-import { lazy } from "react";
+import { RouteObject, useRoutes, createBrowserRouter } from 'react-router-dom';
+import LazyLoad from './lazyLoad';
+import { lazy } from 'react';
 
 type IRouteObject = RouteObject & {
   path: string;
@@ -16,27 +16,27 @@ type IRouteObject = RouteObject & {
 
 export const routes: IRouteObject[] = [
   {
-    path: "/home",
-    logPageName: "HOME",
-    name: "首页",
-    key: "home",
-    element: LazyLoad(lazy(() => import("@/pages/Home"))),
+    path: '/home',
+    logPageName: 'HOME',
+    name: '首页',
+    key: 'home',
+    element: LazyLoad(lazy(() => import('@/pages/Home'))),
     isNav: true,
     children: [
       {
-        path: "/home/1",
-        name: "首页1",
-        key: "home1",
-        element: LazyLoad(lazy(() => import("@/pages/Home/home1"))),
+        path: '/home/1',
+        name: '首页1',
+        key: 'home1',
+        element: LazyLoad(lazy(() => import('@/pages/Home/home1'))),
       },
     ],
   },
   {
-    path: "/test",
-    logPageName: "TEST",
-    name: "test",
-    key: "test",
-    element: LazyLoad(lazy(() => import("@/pages/Test"))),
+    path: '/test',
+    logPageName: 'TEST',
+    name: 'test',
+    key: 'test',
+    element: LazyLoad(lazy(() => import('@/pages/Test'))),
   },
 ];
 // createBrowserRouter(routes)

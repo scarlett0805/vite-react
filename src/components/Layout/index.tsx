@@ -1,20 +1,20 @@
-import React, { FC, useState, useEffect } from "react";
-import { Breadcrumb, Layout, Menu, theme } from "antd";
-import { NavLink, useLocation, useMatches } from "react-router-dom";
+import React, { FC, useState, useEffect } from 'react';
+import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { NavLink, useLocation, useMatches } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
-import { routes } from "@/router";
-import RouteView from "@/router";
-import "./style.less";
+import { routes } from '@/router';
+import RouteView from '@/router';
+import './style.less';
 
 const ILayout: FC = () => {
   const [headerItems, setHeaderItems] = useState<any[]>([]);
   const [siderList, setSiderList] = useState<any[]>();
   // const matches = useMatches();
   // console.log('lxy matches', matches)
-  const [headerKey, setHeaderKey] = useState<string>("");
+  const [headerKey, setHeaderKey] = useState<string>('');
   const location = useLocation();
   useEffect(() => {
-    let headerList = routes.map((item) => {
+    const headerList = routes.map((item) => {
       return {
         key: item.key,
         label: <NavLink to={item.path}>{item.name}</NavLink>,
@@ -23,7 +23,7 @@ const ILayout: FC = () => {
     setHeaderItems(headerList);
   }, []);
   useEffect(() => {
-    console.log("lxy loction---", location);
+    console.log('lxy loction---', location);
   }, [location]);
 
   return (
@@ -47,13 +47,13 @@ const ILayout: FC = () => {
             <Menu
               className="app-sider-menu"
               mode="inline"
-              defaultSelectedKeys={["1"]}
-              defaultOpenKeys={["sub1"]}
+              defaultSelectedKeys={['1']}
+              defaultOpenKeys={['sub1']}
               items={[]}
             />
           </Sider>
-          <Layout style={{ padding: "0 24px 24px" }}>
-            <Breadcrumb style={{ margin: "16px 0" }}>
+          <Layout style={{ padding: '0 24px 24px' }}>
+            <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item>Home</Breadcrumb.Item>
               <Breadcrumb.Item>List</Breadcrumb.Item>
               <Breadcrumb.Item>App</Breadcrumb.Item>
