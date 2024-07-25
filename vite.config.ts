@@ -2,12 +2,37 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 import 'eslint-plugin-react';
-import importToCDN from 'vite-plugin-cdn-import'
+import vitePluginImp from 'vite-plugin-imp'
+//https://github.com/MMF-FE/vite-plugin-cdn-import/
+import cdn from 'vite-plugin-cdn-import'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/',
-  plugins: [react()],
+  plugins: [
+    react(),
+    cdn({
+      modules: ['react', 'react-dom'],
+    }),
+    vitePluginImp({
+      libList: [
+        {
+          libName: 'lodash',
+          libDirectory: '',
+          camel2DashComponentName: false
+        },
+        {
+          libName: 'antd',
+          style(name) {
+            // use less
+            return `antd/es/${name}/style/index.js`
+          }
+        },
+      ]
+    }),
+    visualizer({open: true})
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

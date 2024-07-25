@@ -23,6 +23,7 @@ module.exports = {
     "react/display-name": "off",
     // // eslint-plugin-react-hooks 的配置
     "react-hooks/rules-of-hooks": "error",
+    "@typescript-eslint/no-explicit-any": "off"
   },
 }
 // module.exports = {

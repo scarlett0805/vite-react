@@ -1,14 +1,15 @@
-import React, { FC, useState, useEffect } from 'react';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import { NavLink, useLocation, useMatches } from 'react-router-dom';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { FC, useState, useEffect } from 'react';
+import { Breadcrumb, Layout, Menu } from 'antd';
+import { NavLink, useLocation } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
-import { routes } from '@/router';
+import { routes } from '@/router/config';
 import RouteView from '@/router';
 import './style.less';
 
 const ILayout: FC = () => {
   const [headerItems, setHeaderItems] = useState<any[]>([]);
-  const [siderList, setSiderList] = useState<any[]>();
+  // const [siderList, setSiderList] = useState<any[]>();
   // const matches = useMatches();
   // console.log('lxy matches', matches)
   const [headerKey, setHeaderKey] = useState<string>('');
@@ -31,7 +32,7 @@ const ILayout: FC = () => {
       <Layout className="app-layout">
         <Header className="app-header">
           <Menu
-            theme="dark"
+            theme="light"
             className="app-header-menu"
             mode="horizontal"
             selectedKeys={[headerKey]}
