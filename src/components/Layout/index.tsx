@@ -1,17 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC, useState, useEffect } from 'react';
 import { Breadcrumb, Layout, Menu } from 'antd';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, Outlet , useMatches} from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
 import { routes } from '@/router/config';
-import RouteView from '@/router';
+// import RouteView from '@/router';
+
 import './style.less';
 
 const ILayout: FC = () => {
   const [headerItems, setHeaderItems] = useState<any[]>([]);
   // const [siderList, setSiderList] = useState<any[]>();
-  // const matches = useMatches();
-  // console.log('lxy matches', matches)
+  const matches = useMatches();
+  console.log('lxy matches', matches)
   const [headerKey, setHeaderKey] = useState<string>('');
   const location = useLocation();
   useEffect(() => {
@@ -60,7 +61,8 @@ const ILayout: FC = () => {
               <Breadcrumb.Item>App</Breadcrumb.Item>
             </Breadcrumb>
             <Content className="app-content">
-              <RouteView />
+              {/* <RouteView /> */}
+              <Outlet/>
             </Content>
           </Layout>
         </Layout>
